@@ -11,6 +11,10 @@ const typeDefs = `
     info:  String!
     feed: [Link!]!
   }
+
+  type Mutation {
+    post(url: String!, descrinption: String!): Link!
+  }
 `;
 
 const links = [{
@@ -19,15 +23,23 @@ const links = [{
   descrinption: 'default test'
 }]
 
+let idCount =  links.length;
+
 const resolvers  = {
   Query: {
     info: () => 'String Info',
     feed: () => links
   },
-  Link: {
-    id: parent => parent.id,
-    url: parent => parent.url,
-    descrinption: parent => parent.descrinption,
+  Mutation: {
+    post: (parent, args) => {
+      const link = {
+        id: `link-${idCount++}`,
+        url: args.url,
+        descrinption: args.descrinption,
+      }
+      links.push(link)
+      return link
+    }
   }
 };
 
