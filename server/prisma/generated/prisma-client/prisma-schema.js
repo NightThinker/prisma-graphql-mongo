@@ -13,8 +13,8 @@ type BatchPayload {
 
 type Link {
   id: ID!
-  name: String!
-  email: String!
+  url: String!
+  descrinption: String!
 }
 
 type LinkConnection {
@@ -24,8 +24,8 @@ type LinkConnection {
 }
 
 input LinkCreateInput {
-  name: String!
-  email: String!
+  url: String!
+  descrinption: String!
 }
 
 type LinkEdge {
@@ -36,16 +36,16 @@ type LinkEdge {
 enum LinkOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  email_ASC
-  email_DESC
+  url_ASC
+  url_DESC
+  descrinption_ASC
+  descrinption_DESC
 }
 
 type LinkPreviousValues {
   id: ID!
-  name: String!
-  email: String!
+  url: String!
+  descrinption: String!
 }
 
 type LinkSubscriptionPayload {
@@ -65,13 +65,13 @@ input LinkSubscriptionWhereInput {
 }
 
 input LinkUpdateInput {
-  name: String
-  email: String
+  url: String
+  descrinption: String
 }
 
 input LinkUpdateManyMutationInput {
-  name: String
-  email: String
+  url: String
+  descrinption: String
 }
 
 input LinkWhereInput {
@@ -89,40 +89,39 @@ input LinkWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  email: String
-  email_not: String
-  email_in: [String!]
-  email_not_in: [String!]
-  email_lt: String
-  email_lte: String
-  email_gt: String
-  email_gte: String
-  email_contains: String
-  email_not_contains: String
-  email_starts_with: String
-  email_not_starts_with: String
-  email_ends_with: String
-  email_not_ends_with: String
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
+  descrinption: String
+  descrinption_not: String
+  descrinption_in: [String!]
+  descrinption_not_in: [String!]
+  descrinption_lt: String
+  descrinption_lte: String
+  descrinption_gt: String
+  descrinption_gte: String
+  descrinption_contains: String
+  descrinption_not_contains: String
+  descrinption_starts_with: String
+  descrinption_not_starts_with: String
+  descrinption_ends_with: String
+  descrinption_not_ends_with: String
   AND: [LinkWhereInput!]
 }
 
 input LinkWhereUniqueInput {
   id: ID
-  email: String
 }
 
 scalar Long

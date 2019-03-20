@@ -106,26 +106,26 @@ export interface ClientConstructor<T> {
 export type LinkOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "email_ASC"
-  | "email_DESC";
+  | "url_ASC"
+  | "url_DESC"
+  | "descrinption_ASC"
+  | "descrinption_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export interface LinkCreateInput {
-  name: String;
-  email: String;
+  url: String;
+  descrinption: String;
 }
 
 export interface LinkUpdateInput {
-  name?: String;
-  email?: String;
+  url?: String;
+  descrinption?: String;
 }
 
 export interface LinkUpdateManyMutationInput {
-  name?: String;
-  email?: String;
+  url?: String;
+  descrinption?: String;
 }
 
 export interface LinkWhereInput {
@@ -143,34 +143,34 @@ export interface LinkWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  email?: String;
-  email_not?: String;
-  email_in?: String[] | String;
-  email_not_in?: String[] | String;
-  email_lt?: String;
-  email_lte?: String;
-  email_gt?: String;
-  email_gte?: String;
-  email_contains?: String;
-  email_not_contains?: String;
-  email_starts_with?: String;
-  email_not_starts_with?: String;
-  email_ends_with?: String;
-  email_not_ends_with?: String;
+  url?: String;
+  url_not?: String;
+  url_in?: String[] | String;
+  url_not_in?: String[] | String;
+  url_lt?: String;
+  url_lte?: String;
+  url_gt?: String;
+  url_gte?: String;
+  url_contains?: String;
+  url_not_contains?: String;
+  url_starts_with?: String;
+  url_not_starts_with?: String;
+  url_ends_with?: String;
+  url_not_ends_with?: String;
+  descrinption?: String;
+  descrinption_not?: String;
+  descrinption_in?: String[] | String;
+  descrinption_not_in?: String[] | String;
+  descrinption_lt?: String;
+  descrinption_lte?: String;
+  descrinption_gt?: String;
+  descrinption_gte?: String;
+  descrinption_contains?: String;
+  descrinption_not_contains?: String;
+  descrinption_starts_with?: String;
+  descrinption_not_starts_with?: String;
+  descrinption_ends_with?: String;
+  descrinption_not_ends_with?: String;
   AND?: LinkWhereInput[] | LinkWhereInput;
 }
 
@@ -185,7 +185,6 @@ export interface LinkSubscriptionWhereInput {
 
 export type LinkWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
-  email?: String;
 }>;
 
 export interface NodeNode {
@@ -226,24 +225,24 @@ export interface BatchPayloadSubscription
 
 export interface LinkPreviousValues {
   id: ID_Output;
-  name: String;
-  email: String;
+  url: String;
+  descrinption: String;
 }
 
 export interface LinkPreviousValuesPromise
   extends Promise<LinkPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  email: () => Promise<String>;
+  url: () => Promise<String>;
+  descrinption: () => Promise<String>;
 }
 
 export interface LinkPreviousValuesSubscription
   extends Promise<AsyncIterator<LinkPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
+  url: () => Promise<AsyncIterator<String>>;
+  descrinption: () => Promise<AsyncIterator<String>>;
 }
 
 export interface LinkEdge {
@@ -290,22 +289,22 @@ export interface LinkSubscriptionPayloadSubscription
 
 export interface Link {
   id: ID_Output;
-  name: String;
-  email: String;
+  url: String;
+  descrinption: String;
 }
 
 export interface LinkPromise extends Promise<Link>, Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  email: () => Promise<String>;
+  url: () => Promise<String>;
+  descrinption: () => Promise<String>;
 }
 
 export interface LinkSubscription
   extends Promise<AsyncIterator<Link>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
+  url: () => Promise<AsyncIterator<String>>;
+  descrinption: () => Promise<AsyncIterator<String>>;
 }
 
 export interface LinkConnection {
