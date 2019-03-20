@@ -3,7 +3,7 @@ type Link {
   createdAt: DateTime! @createdAt
   url: String!
   description: String!
-  postedBy: User
+  postedBy: User @relation(name: "PostedByUser")
 }
 
 type User {
@@ -11,5 +11,5 @@ type User {
   name: String!
   email: String! @unique
   password: String!
-  links: [Link!]! @relation(link: INLINE)
+  links: [Link!]! @relation(name: "PostedByUser", link: INLINE, onDelete: CASCADE)
 }
