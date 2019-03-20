@@ -3,7 +3,7 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregateUser {
+/* GraphQL */ `type AggregateLink {
   count: Int!
 }
 
@@ -11,68 +11,29 @@ type BatchPayload {
   count: Long!
 }
 
-scalar Long
-
-type Mutation {
-  createUser(data: UserCreateInput!): User!
-  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
-  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
-  deleteUser(where: UserWhereUniqueInput!): User
-  deleteManyUsers(where: UserWhereInput): BatchPayload!
-}
-
-enum MutationType {
-  CREATED
-  UPDATED
-  DELETED
-}
-
-interface Node {
-  id: ID!
-}
-
-type PageInfo {
-  hasNextPage: Boolean!
-  hasPreviousPage: Boolean!
-  startCursor: String
-  endCursor: String
-}
-
-type Query {
-  user(where: UserWhereUniqueInput!): User
-  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
-  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
-  node(id: ID!): Node
-}
-
-type Subscription {
-  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
-}
-
-type User {
+type Link {
   id: ID!
   name: String!
   email: String!
 }
 
-type UserConnection {
+type LinkConnection {
   pageInfo: PageInfo!
-  edges: [UserEdge]!
-  aggregate: AggregateUser!
+  edges: [LinkEdge]!
+  aggregate: AggregateLink!
 }
 
-input UserCreateInput {
+input LinkCreateInput {
   name: String!
   email: String!
 }
 
-type UserEdge {
-  node: User!
+type LinkEdge {
+  node: Link!
   cursor: String!
 }
 
-enum UserOrderByInput {
+enum LinkOrderByInput {
   id_ASC
   id_DESC
   name_ASC
@@ -81,39 +42,39 @@ enum UserOrderByInput {
   email_DESC
 }
 
-type UserPreviousValues {
+type LinkPreviousValues {
   id: ID!
   name: String!
   email: String!
 }
 
-type UserSubscriptionPayload {
+type LinkSubscriptionPayload {
   mutation: MutationType!
-  node: User
+  node: Link
   updatedFields: [String!]
-  previousValues: UserPreviousValues
+  previousValues: LinkPreviousValues
 }
 
-input UserSubscriptionWhereInput {
+input LinkSubscriptionWhereInput {
   mutation_in: [MutationType!]
   updatedFields_contains: String
   updatedFields_contains_every: [String!]
   updatedFields_contains_some: [String!]
-  node: UserWhereInput
-  AND: [UserSubscriptionWhereInput!]
+  node: LinkWhereInput
+  AND: [LinkSubscriptionWhereInput!]
 }
 
-input UserUpdateInput {
+input LinkUpdateInput {
   name: String
   email: String
 }
 
-input UserUpdateManyMutationInput {
+input LinkUpdateManyMutationInput {
   name: String
   email: String
 }
 
-input UserWhereInput {
+input LinkWhereInput {
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -156,12 +117,51 @@ input UserWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
-  AND: [UserWhereInput!]
+  AND: [LinkWhereInput!]
 }
 
-input UserWhereUniqueInput {
+input LinkWhereUniqueInput {
   id: ID
   email: String
+}
+
+scalar Long
+
+type Mutation {
+  createLink(data: LinkCreateInput!): Link!
+  updateLink(data: LinkUpdateInput!, where: LinkWhereUniqueInput!): Link
+  updateManyLinks(data: LinkUpdateManyMutationInput!, where: LinkWhereInput): BatchPayload!
+  upsertLink(where: LinkWhereUniqueInput!, create: LinkCreateInput!, update: LinkUpdateInput!): Link!
+  deleteLink(where: LinkWhereUniqueInput!): Link
+  deleteManyLinks(where: LinkWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Query {
+  link(where: LinkWhereUniqueInput!): Link
+  links(where: LinkWhereInput, orderBy: LinkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Link]!
+  linksConnection(where: LinkWhereInput, orderBy: LinkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LinkConnection!
+  node(id: ID!): Node
+}
+
+type Subscription {
+  link(where: LinkSubscriptionWhereInput): LinkSubscriptionPayload
 }
 `
       }

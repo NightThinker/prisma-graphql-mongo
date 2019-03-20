@@ -1,4 +1,4 @@
-type User {
+type Link {
   id: ID! @id
   name: String!
   email: String! @unique
