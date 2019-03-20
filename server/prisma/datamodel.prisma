@@ -2,4 +2,13 @@ type Link {
   id: ID! @id
   url: String!
   descrinption: String!
+  postedBy: User @relation(link: INLINE)
+}
+
+type User {
+  id: ID! @id
+  name: String!
+  email: String! @unique
+  password: String!
+  links: [Link!]!
 }
