@@ -15,10 +15,13 @@ type BatchPayload {
   count: Long!
 }
 
+scalar DateTime
+
 type Link {
   id: ID!
+  createdAt: DateTime!
   url: String!
-  descrinption: String!
+  description: String!
   postedBy: User
 }
 
@@ -30,7 +33,7 @@ type LinkConnection {
 
 input LinkCreateInput {
   url: String!
-  descrinption: String!
+  description: String!
   postedBy: UserCreateOneWithoutLinksInput
 }
 
@@ -41,7 +44,7 @@ input LinkCreateManyWithoutPostedByInput {
 
 input LinkCreateWithoutPostedByInput {
   url: String!
-  descrinption: String!
+  description: String!
 }
 
 type LinkEdge {
@@ -52,16 +55,19 @@ type LinkEdge {
 enum LinkOrderByInput {
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
   url_ASC
   url_DESC
-  descrinption_ASC
-  descrinption_DESC
+  description_ASC
+  description_DESC
 }
 
 type LinkPreviousValues {
   id: ID!
+  createdAt: DateTime!
   url: String!
-  descrinption: String!
+  description: String!
 }
 
 input LinkScalarWhereInput {
@@ -79,6 +85,14 @@ input LinkScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   url: String
   url_not: String
   url_in: [String!]
@@ -93,20 +107,20 @@ input LinkScalarWhereInput {
   url_not_starts_with: String
   url_ends_with: String
   url_not_ends_with: String
-  descrinption: String
-  descrinption_not: String
-  descrinption_in: [String!]
-  descrinption_not_in: [String!]
-  descrinption_lt: String
-  descrinption_lte: String
-  descrinption_gt: String
-  descrinption_gte: String
-  descrinption_contains: String
-  descrinption_not_contains: String
-  descrinption_starts_with: String
-  descrinption_not_starts_with: String
-  descrinption_ends_with: String
-  descrinption_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
   AND: [LinkScalarWhereInput!]
   OR: [LinkScalarWhereInput!]
   NOT: [LinkScalarWhereInput!]
@@ -130,18 +144,18 @@ input LinkSubscriptionWhereInput {
 
 input LinkUpdateInput {
   url: String
-  descrinption: String
+  description: String
   postedBy: UserUpdateOneWithoutLinksInput
 }
 
 input LinkUpdateManyDataInput {
   url: String
-  descrinption: String
+  description: String
 }
 
 input LinkUpdateManyMutationInput {
   url: String
-  descrinption: String
+  description: String
 }
 
 input LinkUpdateManyWithoutPostedByInput {
@@ -163,7 +177,7 @@ input LinkUpdateManyWithWhereNestedInput {
 
 input LinkUpdateWithoutPostedByDataInput {
   url: String
-  descrinption: String
+  description: String
 }
 
 input LinkUpdateWithWhereUniqueWithoutPostedByInput {
@@ -192,6 +206,14 @@ input LinkWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   url: String
   url_not: String
   url_in: [String!]
@@ -206,20 +228,20 @@ input LinkWhereInput {
   url_not_starts_with: String
   url_ends_with: String
   url_not_ends_with: String
-  descrinption: String
-  descrinption_not: String
-  descrinption_in: [String!]
-  descrinption_not_in: [String!]
-  descrinption_lt: String
-  descrinption_lte: String
-  descrinption_gt: String
-  descrinption_gte: String
-  descrinption_contains: String
-  descrinption_not_contains: String
-  descrinption_starts_with: String
-  descrinption_not_starts_with: String
-  descrinption_ends_with: String
-  descrinption_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
   postedBy: UserWhereInput
   AND: [LinkWhereInput!]
 }

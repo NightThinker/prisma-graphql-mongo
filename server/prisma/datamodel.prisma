@@ -1,8 +1,9 @@
 type Link {
   id: ID! @id
+  createdAt: DateTime! @createdAt
   url: String!
-  descrinption: String!
-  postedBy: User @relation(link: INLINE)
+  description: String!
+  postedBy: User
 }
 
 type User {
@@ -10,5 +11,5 @@ type User {
   name: String!
   email: String! @unique
   password: String!
-  links: [Link!]!
+  links: [Link!]! @relation(link: INLINE)
 }
