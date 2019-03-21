@@ -4,6 +4,7 @@ type Link {
   url: String!
   description: String!
   postedBy: User @relation(name: "PostedByUser")
+  votes: [Vote!]! @relation(link: INLINE)
 }
 
 type User {
@@ -12,4 +13,11 @@ type User {
   email: String! @unique
   password: String!
   links: [Link!]! @relation(name: "PostedByUser", link: INLINE, onDelete: CASCADE)
+  votes: [Vote!]! @relation(link: INLINE)
+}
+
+type Vote {
+  id: ID! @id
+  link: Link!
+  user: User!
 }
