@@ -1,3 +1,12 @@
+enum LinkOrderByInput {
+  description_ASC
+  description_DESC
+  url_ASC
+  url_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
 type AuthPayload {
   token: String!
   user: User
@@ -25,7 +34,7 @@ type Vote {
 }
 
 type Query {
-  feed(filter: String!, skip: Int!, first: Int!): [Link!]!
+  feed(filter: String!, skip: Int!, first: Int!, orderBy: LinkOrderByInput): [Link!]!
 }
 
 type Mutation {
