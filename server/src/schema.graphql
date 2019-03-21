@@ -33,8 +33,13 @@ type Vote {
   user: User!
 }
 
+type Feed {
+  links: [Link!]!
+  count: Int!
+}
+
 type Query {
-  feed(filter: String!, skip: Int!, first: Int!, orderBy: LinkOrderByInput): [Link!]!
+  feed(filter: String!, skip: Int!, first: Int!, orderBy: LinkOrderByInput): Feed!
 }
 
 type Mutation {
