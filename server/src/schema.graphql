@@ -25,7 +25,7 @@ type Vote {
 }
 
 type Query {
-  feed: [Link!]!
+  feed(filter: String!): [Link!]!
 }
 
 type Mutation {
