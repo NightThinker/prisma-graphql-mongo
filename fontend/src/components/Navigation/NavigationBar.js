@@ -44,60 +44,73 @@ const Logo = styled.div`
 
 const navigationBar = props => {
   const menu = {
-    left: [
-      {
-        name: "Products",
-        url: "/products",
-        icon: {
-          status: false,
-        }
+    left: {
+        config: {
+          color: '#f2f2f4',
+          shadow: '#6b6f78'
+        },
+        items: [
+          {
+            name: "Products",
+            url: "/products",
+            icon: {
+              status: false,
+            }
+          },
+          {
+            name: "Search",
+            url: "/search",
+            icon: {
+              status: false,
+            }
+          },
+          {
+            name: "About",
+            url: "/about",
+            icon: {
+              status: false,
+            }
+          }
+        ]
+    }
+    ,
+    right: {
+      config: {
+        color: '#192924',
+        shadow: ''
       },
-      {
-        name: "Search",
-        url: "/search",
-        icon: {
-          status: false,
-        }
-      },
-      {
-        name: "About",
-        url: "/about",
-        icon: {
-          status: false,
-        }
-      },
-    ],
-    right: [
-      {
-        name: "EN",
-        url: "/language",
-        icon: {
-          status: false,
-        }
-      },
-      {
-        name: "Account",
-        url: "/auth",
-        icon: {
-          status: false,
-        }
-      },
-      {
-        name: "Cart",
-        url: "/cart",
-        icon: {
-          status: true,
-          name: 'shopping-basket'
-        }
-      },
-    ]
+      items: [
+        {
+          name: "EN",
+          url: "/language",
+          icon: {
+            status: false,
+          }
+        },
+        {
+          name: "Account",
+          url: "/auth",
+          icon: {
+            status: false,
+          }
+        },
+        {
+          name: "Cart",
+          url: "/cart",
+          icon: {
+            status: true,
+            name: 'shopping-basket'
+          }
+        },
+      ]
+    }
   }
   return (
   <Header>
     <Item>
       <ul>
-        {_.map(menu.left, (item, index) => (
-          <NavigationItem key={index} link={item.url} exact >
+        {_.map(menu.left.items, (item, index) => (
+          <NavigationItem key={index} link={item.url} exact config={menu.left.config} >
             {item.name}
           </NavigationItem>
         ))}
@@ -108,8 +121,8 @@ const navigationBar = props => {
     </Logo>
     <Item>
       <ul>
-        {_.map(menu.right, (item, index) => (
-          <NavigationItem key={index} link={item.url} exact >
+        {_.map(menu.right.items, (item, index) => (
+          <NavigationItem key={index} link={item.url} exact config={menu.right.config} >
             {item.icon.status ? (
               <FontAwesomeIcon icon={item.icon.name} />
             ): (
