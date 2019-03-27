@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCheckSquare, faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faShoppingBasket, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 import AuthPage from './pages/Auth'
 import PageNotFoundPage from './pages/PageNotFound'
@@ -11,7 +11,7 @@ import Home from './pages/Home'
 
 import DefaultLayout from './Layout/DefaultLayout'
 
-library.add(faCheckSquare, faShoppingBasket)
+library.add(faCheckSquare, faShoppingBasket, faArrowLeft, faArrowRight)
 
 class App extends Component {
   render() {
